@@ -1,11 +1,9 @@
-"use client";
-
 import type React from "react";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -14,7 +12,7 @@ export default function LoginPage() {
   const [error, setError] = useState("");
 
   const { login } = useAuth();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,8 +20,9 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
+      // This login function already has navigate inside on success
       await login(username, password);
-      navigate("/admin/dashboard");
+      // ← DO NOT CALL navigate() HERE — it's already inside login()
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err: any) {
       setError("गलत युजरनेम वा पासवर्ड");
