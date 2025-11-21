@@ -1,9 +1,8 @@
 // src/lib/api.ts
 import axios from "axios";
 
-// Detect production vs local
-const BASE_URL = import.meta.env.PROD
-  ? "https://school-app-backend-j6ew.onrender.com/api"
+const BASE_URL = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
   : "http://localhost:5000/api";
 
 const api = axios.create({
@@ -14,7 +13,6 @@ const api = axios.create({
   },
 });
 
-// Fix FormData — let browser set boundary
 api.interceptors.request.use((config) => {
   if (config.data instanceof FormData) {
     delete config.headers["Content-Type"];
