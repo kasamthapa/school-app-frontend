@@ -242,7 +242,7 @@ export default function Layout() {
             © २०८२ श्री सरस्वती बाल बोधिनी माध्यमिक विद्यालय. सर्वाधिकार
             सुरक्षित।
             <br />
-            <br /> <br /> <br /> <br />
+            <br /> <br />
             Made with ❤️ by Kasam Thapa Magar
           </div>
         </div>
