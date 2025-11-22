@@ -33,7 +33,7 @@ export default function Dashboard() {
   const [galleryFile, setGalleryFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [contacts, setContacts] = useState<any[]>([]);
-  const [galleryItems, setGalleryItems] = useState<any[]>([]);
+  const [, setGalleryItems] = useState<any[]>([]);
 
   useEffect(() => {
     const loadContacts = async () => {
@@ -310,33 +310,6 @@ export default function Dashboard() {
             </form>
           </div>
         </div>
-      </div>
-      {/* Gallery Display */}
-      <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto">
-        {galleryItems.length === 0 ? (
-          <p className="col-span-full text-center text-slate-500">
-            🖼️ कुनै फोटो उपलब्ध छैन
-          </p>
-        ) : (
-          galleryItems.map((img) => (
-            <div
-              key={img._id}
-              className="border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition"
-            >
-              <img
-                src={img.imageUrl}
-                alt={img.title}
-                className="w-full h-40 object-cover"
-              />
-              <div className="p-2 bg-white">
-                <p className="font-semibold text-sm">{img.title}</p>
-                <p className="text-xs text-slate-500 truncate">
-                  {img.description}
-                </p>
-              </div>
-            </div>
-          ))
-        )}
       </div>
 
       {/* Contact Messages Section */}
