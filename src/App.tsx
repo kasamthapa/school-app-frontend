@@ -9,7 +9,7 @@ import Faculty from "./pages/Faculty";
 import Gallery from "./pages/Gallery";
 import Notices from "./pages/Notices";
 import Contact from "./pages/Contact";
-import AdminLogin from "./pages/LoginPage";
+import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import Test from "./pages/Test";
 
@@ -26,8 +26,8 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="/test" element={<Test />} />
         {/* Admin Routes */}
-        <Route path="admin/login" element={<AdminLogin />} />
-        <Route path="admin/dashboard" element={<Dashboard />} />
+        <Route path="/admin/login" element={<LoginPage />} />
+        <Route path="/admin/dashboard" element={<Dashboard />} />
       </Route>
     </Routes>
   );
