@@ -9,7 +9,7 @@ export default defineConfig({
     // This proxy ONLY works in development — it's GOOD to keep!
     proxy: {
       "/api": {
-        target: "https://school-app-backend-j6ew.onrender.com",
+        target: "https://school-app-backend-9kjf.onrender.com",
         changeOrigin: true,
         secure: true,
       },
