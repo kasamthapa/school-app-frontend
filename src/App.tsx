@@ -23,11 +23,10 @@ function App() {
         <Route path="notices" element={<Notices />} />
         <Route path="contact" element={<Contact />} />
         <Route path="/test" element={<Test />} />
+        {/* Admin Routes */}
+        <Route path="admin/login" element={<AdminLogin />} />
+        <Route path="admin/dashboard" element={<Dashboard />} />
       </Route>
-
-      {/* Admin Routes */}
-      <Route path="/admin/login" element={<AdminLogin />} />
-      <Route path="/admin/dashboard" element={<Dashboard />} />
     </Routes>
   );
 }
