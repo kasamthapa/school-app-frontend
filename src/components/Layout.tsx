@@ -241,6 +241,8 @@ export default function Layout() {
           <div className="border-t border-slate-700 pt-8 text-center text-slate-400">
             © २०८२ श्री सरस्वती बाल बोधिनी माध्यमिक विद्यालय. सर्वाधिकार
             सुरक्षित।
+            <br />
+            Made with ❤️ by Kasam Thapa Magar
           </div>
         </div>
       </footer>
