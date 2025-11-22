@@ -1,7 +1,9 @@
 // src/App.tsx
+// LAST DEPLOY: 2025-11-22 — Admin routes added
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+
 import About from "./pages/About";
 import Faculty from "./pages/Faculty";
 import Gallery from "./pages/Gallery";
