@@ -33,6 +33,7 @@ export default function Dashboard() {
   const [galleryFile, setGalleryFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [contacts, setContacts] = useState<any[]>([]);
+  const [galleryItems, setGalleryItems] = useState<any[]>([]);
 
   useEffect(() => {
     const loadContacts = async () => {
@@ -105,6 +106,22 @@ export default function Dashboard() {
     }
   };
 
+  // Load gallery items from backend
+  const loadGallery = async () => {
+    try {
+      const { data } = await api.get("/gallery");
+      setGalleryItems(data);
+    } catch {
+      toast.error("ग्यालरी लोड गर्न असफल भयो");
+    }
+  };
+
+  // Call it on mount
+  useEffect(() => {
+    loadGallery();
+  }, []);
+
+  // Updated handleGalleryUpload to refresh gallery after upload
   const handleGalleryUpload = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!galleryFile) return;
@@ -121,6 +138,7 @@ export default function Dashboard() {
       setGalleryTitle("");
       setGalleryDesc("");
       setGalleryFile(null);
+      loadGallery(); // refresh gallery to show newly uploaded image
     } catch {
       toast.error("फोटो अपलोड असफल भयो");
     } finally {
@@ -292,6 +310,33 @@ export default function Dashboard() {
             </form>
           </div>
         </div>
+      </div>
+      {/* Gallery Display */}
+      <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4 max-h-96 overflow-y-auto">
+        {galleryItems.length === 0 ? (
+          <p className="col-span-full text-center text-slate-500">
+            🖼️ कुनै फोटो उपलब्ध छैन
+          </p>
+        ) : (
+          galleryItems.map((img) => (
+            <div
+              key={img._id}
+              className="border rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition"
+            >
+              <img
+                src={img.imageUrl}
+                alt={img.title}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-2 bg-white">
+                <p className="font-semibold text-sm">{img.title}</p>
+                <p className="text-xs text-slate-500 truncate">
+                  {img.description}
+                </p>
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       {/* Contact Messages Section */}
