@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import api from "../lib/api";
 import { Link } from "react-router-dom";
-import SchoolBuildingImg from "../assets/modern-school-building-with-bright-sunlight-educat.jpg";
-import StudentsImg from "../assets/happy-students-studying-together-in-classroom-lear.jpg";
-import AchievementImg from "../assets/achievements-awards-celebration-success-trophy.jpg";
+import SchoolBuildingImg from "../assets/building.png";
+import StudentsImg from "../assets/padhai.png";
+import AchievementImg from "../assets/achieve.png";
 
 interface Notice {
   _id: string;
