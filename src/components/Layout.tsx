@@ -243,7 +243,7 @@ export default function Layout() {
             सुरक्षित।
             <br />
             <br /> <br />
-            Made with ❤️ by Kasam Thapa Magar
+            Made with ❤️ by Prayash & Sanskar
           </div>
         </div>
       </footer>
